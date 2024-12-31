@@ -142,4 +142,4 @@ Este repositorio contiene ejercicios para ayudarte a aprender y dominar varios c
 
 1. Clona el repositorio:
    ```bash
-   git clone https://github.com/tuusuario/js-exercises.git
+   git clone https://github.com/AronJustoC/EssentialJS
