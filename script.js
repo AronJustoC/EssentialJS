@@ -163,6 +163,8 @@ outerFunction();
 }
 */
 
+
+
 //02. Arrow functions
 /////////////////////////Ejercicio01 ------> Sintaxis de arrow functions
 /*
@@ -254,4 +256,64 @@ fetchData().then((message) => console.log(message));
 */
 
 
+//03 map
+/////////////////////////Ejercicio01 ------> map eleva al cuadrado los elementos de un array
+/*
+const numbers = [1, 2, 3, 4, 6];
+const squareNumbers = numbers.map((number) => number * number);
+console.log(squareNumbers);
+
+/////////////////////////Ejercicio02 ------>  convertir nombres a mayusculas
+
+const names = ["aron", "jose", "luis", "maria"];
+const upperCasaNames = names.map((name) => name.toUpperCase());
+console.log(upperCasaNames);
+
+/////////////////////////Ejercicio03 ------>  formatear precios
+
+const prices = [20, 30, 40, 50, 60];
+const formattedPrices = prices.map((price) => `$${price}.00`);
+console.log(formattedPrices);
+
+/////////////////////////Ejercicio04 ------>  De array a objetos utilazndo map
+
+const products = ['pizza', 'hamburguesa', 'hotdog', 'tacos'];
+const pricesOfProducts = [12, 20, 15, 10];
+const productsObjects = products.map((product, index) => ({
+  id: index,
+  name: product,
+  price: `$${pricesOfProducts[index]}.00`,
+}));
+console.log(productsObjects);
+
+/////////////////////////Ejercicio05 ------>  Multiplicar elementos de un array por su indice
+
+const numbersIndex = [1, 2, 3, 4, 5];
+const multiplyNumbers = numbersIndex.map((number, index) => number * index);
+console.log(multiplyNumbers);
+
+/////////////////////////Ejercicio06 ------> Extraer propiedades de un objeto
+
+const productsObjects2 = [
+  { name: 'pizza', price: 12 },
+  { name: 'hamburguesa', price: 20 },
+  { name: 'hotdog', price: 15 },
+  { name: 'tacos', price: 10 },
+];
+const pricesOfProducts2 = productsObjects2.map((product) => product.price);
+const namesOfProducts2 = productsObjects2.map((product) => product.name);
+console.log(namesOfProducts2);
+console.log(pricesOfProducts2);
+
+/////////////////////////Ejercicio07 ------>  Reducir palabras a su longitud
+const words = ['hello', 'world', 'javascript', 'html', 'css'];
+const lengthWords = words.map((word) => word.length);
+console.log(lengthWords);
+
+/////////////////////////Ejercicio08 ------>  Agregar valores constantes a un array
+const numbers2 = [1, 2, 3, 4, 5];
+const addNumbers = numbers2.map((number) => number + 15);
+console.log(addNumbers);
+
+*/
 
