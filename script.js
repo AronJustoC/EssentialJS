@@ -163,8 +163,102 @@ outerFunction();
 }
 */
 
+
+
+//02. Arrow functions
+/////////////////////////Ejercicio01 ------> Sintaxis de arrow functions
+/*
+//Funcion normal
+function suma(a, b) {
+  return a + b;
+}
+console.log("Funcion normal", suma(1, 2));
+
+//Arrow function
+const sumaArrow = (a, b) => a + b;
+console.log("Arrow funcion", sumaArrow(1, 2));
+*/
+
+/////////////////////////Ejercicio02 ------> Arrow functions de una sola linea
+/*
+const square = (num) => num * num; //La forma general es (parametros) => expresion no se nucesita return porque es implicito
+console.log(square(5));
+*/
+
+/////////////////////////Ejercicio03 ------> Filtrar numeros pares con arrow functions
+/*
+const numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9];
+const evenNumbers = numbers.filter((num)=> num % 2 === 0);
+console.log(evenNumbers);
+*/
+
+/////////////////////////Ejercicio04 ------> Arrow functions mapear numeros al cuadrado
+/*
+const numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9];
+const squareNumbers = numbers.map((num) => num * num);
+console.log(squareNumbers);
+*/
+
+/////////////////////////Ejercicio05 ------> Combinar funciones
+/*
+const double = (num) => num * 2;
+const triple = (num) => num * 3;
+
+const numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9];
+const result = numbers.map((num) => double(triple(num)));
+console.log(result);
+*/
+
+/////////////////////////Ejercicio06 ------> Arrow functions como parametro
+/*
+const applyOperation = (array, operation, number) => {
+  return array.map((item) => operation(item, number));
+};
+
+const add = (a, b) => a + b;
+const numbers = [1, 2, 3, 4, 5];
+const result = applyOperation(numbers, add, 6);
+console.log(result);
+*/
+
+/////////////////////////Ejercicio07 ------> Uso de this en arrow functions
+/*
+const person = {
+  name: "Aron",
+  greet: () => `Hola, mi nombre es ${person.name}`,
+};
+
+console.log(person.greet());
+*/
+
+/////////////////////////Ejercicio08 ------> Reducir un array con arrow functions
+/*
+const numbers = [1, 2, 3, 4, 5];
+const sum = numbers.reduce((accum, num) => accum + num, 0);
+console.log(sum);
+*/
+
+/////////////////////////Ejercicio09 ------> Crear una funcion de orden superior con arrow functions
+/*
+const multiplier = (x) => (y) => x * y;
+const double = multiplier(2);
+console.log(double(5));
+*/
+/////////////////////////Ejercicio10 ------> Arrow funcion y promesas
+/*
+const fetchData = () => {
+  return new Promise((resolve) => {
+    setTimeout(() => { resolve("Datos cargados"); }, 2000);
+  });
+};
+
+fetchData().then((message) => console.log(message));
+*/
+
+
 //03 map
 /////////////////////////Ejercicio01 ------> map eleva al cuadrado los elementos de un array
+/*
 const numbers = [1, 2, 3, 4, 6];
 const squareNumbers = numbers.map((number) => number * number);
 console.log(squareNumbers);
@@ -221,9 +315,5 @@ const numbers2 = [1, 2, 3, 4, 5];
 const addNumbers = numbers2.map((number) => number + 15);
 console.log(addNumbers);
 
-
-
-
-
-
+*/
 

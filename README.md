@@ -171,5 +171,4 @@ Este repositorio contiene ejercicios para ayudarte a aprender y dominar varios c
 
    ```bash
    git clone https://github.com/AronJustoC/EssentialJS
-   =======
    ```
