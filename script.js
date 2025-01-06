@@ -317,3 +317,62 @@ console.log(addNumbers);
 
 */
 
+//04 filter
+/////////////////////////Ejercicio01 ------> Filtrar numeros pares
+const numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9];
+const evenNumeers = numbers.filter((number) => number % 2 === 0);
+console.log(evenNumeers);
+
+/////////////////////////Ejercicio02 ------> Filtrar por numero de palabras
+const words = ['hello', 'world', 'javascript', 'html', 'css'];
+const wordsWithFiveLetters = words.filter((word) => word.length === 4);
+console.log(wordsWithFiveLetters);
+
+/////////////////////////Ejercicio03 ------> Filtrar los usuarios de un objeto que sean mayores de edad
+const users = [
+  { name: 'Aron', age: 28 },
+  { name: 'Jose', age: 17 },
+  { name: 'Luis', age: 15 },
+  { name: 'Maria', age: 30 },
+];
+
+const adults = users.filter((user) => user.age >= 18);
+console.log(adults);
+
+/////////////////////////Ejercicio04 ------> Filtrar productos en stock
+const products = [
+  { name: 'pizza', stock: 20 },
+  { name: 'hamburguesa', stock: 0 },
+  { name: 'hotdog', stock: 3 },
+  { name: 'tacos', stock: 5 },
+];
+
+const productsInStock = products.filter((product) => product.stock > 0);
+console.log(productsInStock);
+
+/////////////////////////Ejercicio05 ------> Calificaciones aprovatorias
+const grades = [10, 5, 8, 3, 9, 7, 6];
+const passGrades = grades.filter((grade) => grade >= 7);
+console.log(passGrades);
+
+/////////////////////////Ejercicio06 ------> Nombres que empiezan con la letra A
+const names = ['Aron', 'Jose', 'Luis', 'Maria', 'Ana', 'Antonio'];
+const namesStartWithA = names.filter((name) => name.startsWith('A'));
+console.log(namesStartWithA);
+
+/////////////////////////Ejercicio07 ------> Palabras con longitud especifica
+
+const words2 = ['hello', 'world', 'javascript', 'html', 'css'];
+const wordsWithFiveLetters2 = words2.filter((word) => word.length === 5);
+console.log(wordsWithFiveLetters2);
+
+/////////////////////////Ejercicio08 ------> Objetos con un valor especifico
+const products2 = [
+  { id: 1, name: 'pizza', price: 12, available: true },
+  { id: 2, name: 'hamburguesa', price: 20, available: false },
+  { id: 3, name: 'hotdog', price: 15, available: true },
+  { id: 4, name: 'tacos', price: 10, available: false },
+];
+
+const availableProducts = products2.filter((product) => product.available === true);
+console.log(availableProducts);
