@@ -318,6 +318,7 @@ console.log(addNumbers);
 */
 
 //04 filter
+/*
 /////////////////////////Ejercicio01 ------> Filtrar numeros pares
 const numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9];
 const evenNumeers = numbers.filter((number) => number % 2 === 0);
@@ -376,3 +377,212 @@ const products2 = [
 
 const availableProducts = products2.filter((product) => product.available === true);
 console.log(availableProducts);
+*/
+
+//05 reduce
+/////////////////////////Ejercicio01 ------> Sumar los elementos de un array
+/*
+const numbers = [1, 2, 3, 4, 5];
+const sum = numbers.reduce((accum, number) => accum + number, 0);
+console.log(sum);
+
+/////////////////////////Ejercicio02 ------> Concatenar elementos de un array
+
+const words = ['JavaScript', 'is', 'awesome'];
+const sentence = words.reduce((accum, word) => `${accum} ${word}`);
+console.log(sentence);
+
+/////////////////////////Ejercicio03 ------> Producto de numeros
+const numbers2 = [1, 2, 3, 4, 5];
+const productOfNumbers = numbers2.reduce((accum, number) => accum * number, 1);
+console.log(productOfNumbers);
+
+/////////////////////////Ejercicio04 ------> Agrupar elementos
+const products = [
+  { name: 'pizza', category: 'comida' },
+  { name: 'hamburguesa', category: 'comida' },
+  { name: 'hotdog', category: 'comida' },
+  { name: 'tacos', category: 'comida' },
+  { name: 'coca cola', category: 'bebida' },
+  { name: 'sprite', category: 'bebida' },
+  { name: 'agua', category: 'bebida' },
+];
+
+const groupedProducts = products.reduce((accum, product) => {
+  //Desestructurar la categoria del producto
+  const { category } = product;
+  //Si la categoria no existe en el acumulador, inicializarla como un array vacio
+  if (!accum[category]) {
+    accum[category] = [];
+  }
+  //Agregar el producto ala categoria correspondiente
+  accum[category].push(product);
+  return accum;
+}, {});
+
+console.log(groupedProducts);
+
+////////////////////Ejercicio05  -----> Encontrar el maximo valor de un array
+
+const numbers3 = [10, 520, 20, 15, 6, 8, 9, 45];
+const max = numbers3.reduce((accum, currentValue) => {
+  return currentValue > accum ? currentValue : accum;
+}, numbers[0]);
+
+console.log(max);
+
+//////////////////Ejercicio06  ------> Convertir un array de objetos a un objeto
+const people = [
+  { id: 1, name: 'Alice' },
+  { id: 2, name: 'Bob' },
+  { id: 3, name: 'Charlie' }
+];
+const peopleById = people.reduce((accum, person) => {
+  accum[person.id] = person;
+  return accum;
+}, {});
+console.log(people);
+console.log(peopleById);
+
+////////////////////Ejercicio07 Eliminar duplicados de un array
+const numbers4 = [1, 2, 2, 3, 3, 3, 4, 5, 6, 7, 8, 9, 9, 7, 5, 6, 2, 4, 3];
+const singleNumbers = numbers4.reduce((accum, currentValue) => {
+  if (!accum.includes(currentValue)) {
+    accum.push(currentValue);
+  }
+  return accum;
+}, []);
+console.log(singleNumbers);
+
+///////////////////Ejercicio08 -------> Crear una cadena de caracteristicas a partir de un array
+const words3 = ['Hola', 'como', 'estas,', 'todo', 'bien?']
+const textOfTheWords = words3.reduce((accum, currentValue) => `${accum} ${currentValue}`)
+console.log(textOfTheWords)
+
+//////////////////Ejercicio09 -----> Aplanar un array de array
+const arrays = [[1, 2], [3, 4], [5, 6], [7, 8], [9, 10]];
+const flattened = arrays.reduce((accum, currentValue) => accum.concat(currentValue), []);
+console.log(flattened);
+
+//////////////////Ejercicio10  -------> Contar la frecuencia de elementos de un array
+const fruits = ['apple', 'banana', 'orange', 'apple', 'orange', 'banana', 'banana'];
+const frequency = fruits.reduce((accum, fruit) => {
+  accum[fruit] = (accum[fruit] || 0) + 1; //(accum[fruit] || 0) tomara 0 si aun no esta en accum
+  return accum;
+}, {});
+console.log(frequency)
+
+///////////////Ejercicio11 ------> Convertir un array de objetos en un objeto
+const people1 = [
+  { id: 1, name: 'Jhon' },
+  { id: 2, name: 'Jane' },
+  { id: 3, name: 'Jack' },
+];
+
+const peobleById = people1.reduce((accum, person) => {
+  accum[person.id] = person;
+  return accum
+}, {});
+
+console.log(peobleById)
+
+*/
+
+
+//6. destructuring
+
+//Ejerciocio01 Desestructuracion de arrays
+const numbers = [1, 2, 3, 4, 5, 6];
+const [first, second, third] = numbers;
+console.log(first);
+console.log(second);
+console.log(third);
+
+//Ejercicio02 Desestructuraicion de objetos
+const person = {
+  nombre: 'Jhon',
+  edad: 30,
+  ciudad: 'New York'
+};
+
+const { nombre, edad, ciudad } = person;
+console.log(nombre);
+console.log(edad);
+console.log(ciudad);
+
+//Ejercicio03 Desestructuracion con valores predeterminados
+const person1 = {
+  name: 'Jane',
+  age: 25
+};
+const { name, age, city = 'Unknown' } = person1;
+console.log(name);
+console.log(age);
+console.log(city);
+
+//Ejercicio04  Desestructuracion anidada
+const person2 = {
+  nombre2: 'Alice',
+  address2: {
+    city2: 'Los Angeles',
+    zip2: '90001'
+  }
+};
+
+const { nombre2, address2: { city2, zip2 } } = person2;
+console.log(nombre2);
+console.log(city2);
+console.log(zip2);
+
+//Ejercicio05 Desestructuracion en parametros de funcion
+const displayPerson = ({ name, age, alias }) => {
+  console.log(`Name: ${name}, Age: ${age}, Alias: ${alias}`);
+};
+
+const person3 = { name: 'Bod', age: 40, alias: 'Boby' };
+displayPerson(person3);
+
+//Ejercicio06 Desestructuracion de objetos con el operador rest
+const person4 = {
+  name4: 'Charle',
+  age4: 34,
+  city4: 'Chicago'
+};
+
+const { name4, ...rest } = person4;
+console.log(name4);
+console.log(rest);
+
+//Ejercicio07 Desestructuracion de arrays utilizando operador rest
+const numbers3 = [1, 2, 3, 4, 5, 6, 7, 8, 9];
+const [first1, second2, ...rest1] = numbers3;
+console.log(first);
+console.log(rest1);
+
+//Ejercicio08 Intercambio de variables usando desestructuracion
+let a = 1;
+let b = 3;
+[a, b] = [b, a];
+console.log(a);
+console.log(b);
+
+//Ejercicio09  Desestructuracion de parametros de funcion con valores predeterminados
+const greet = ({ name = 'Guest', age = 18 } = {}) => {
+  console.log(`Hello ${name}. You are ${age} years old.`);
+};
+
+greet({ name: 'Dave', age: 22 });
+greet();
+
+//Ejercicio10 Desestructuracion de arrays anidadas
+const nestedArray = [1, [2, 3], 4];
+const [first10, [second10, third10], fourth] = nestedArray;
+console.log(first10);
+console.log(second10);
+console.log(third10);
+console.log(fourth);
+
+
+
+
+
