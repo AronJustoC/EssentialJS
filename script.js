@@ -381,7 +381,7 @@ console.log(availableProducts);
 
 //05 reduce
 /////////////////////////Ejercicio01 ------> Sumar los elementos de un array
-
+/*
 const numbers = [1, 2, 3, 4, 5];
 const sum = numbers.reduce((accum, number) => accum + number, 0);
 console.log(sum);
@@ -485,3 +485,104 @@ const peobleById = people1.reduce((accum, person) => {
 }, {});
 
 console.log(peobleById)
+
+*/
+
+
+//6. destructuring
+
+//Ejerciocio01 Desestructuracion de arrays
+const numbers = [1, 2, 3, 4, 5, 6];
+const [first, second, third] = numbers;
+console.log(first);
+console.log(second);
+console.log(third);
+
+//Ejercicio02 Desestructuraicion de objetos
+const person = {
+  nombre: 'Jhon',
+  edad: 30,
+  ciudad: 'New York'
+};
+
+const { nombre, edad, ciudad } = person;
+console.log(nombre);
+console.log(edad);
+console.log(ciudad);
+
+//Ejercicio03 Desestructuracion con valores predeterminados
+const person1 = {
+  name: 'Jane',
+  age: 25
+};
+const { name, age, city = 'Unknown' } = person1;
+console.log(name);
+console.log(age);
+console.log(city);
+
+//Ejercicio04  Desestructuracion anidada
+const person2 = {
+  nombre2: 'Alice',
+  address2: {
+    city2: 'Los Angeles',
+    zip2: '90001'
+  }
+};
+
+const { nombre2, address2: { city2, zip2 } } = person2;
+console.log(nombre2);
+console.log(city2);
+console.log(zip2);
+
+//Ejercicio05 Desestructuracion en parametros de funcion
+const displayPerson = ({ name, age, alias }) => {
+  console.log(`Name: ${name}, Age: ${age}, Alias: ${alias}`);
+};
+
+const person3 = { name: 'Bod', age: 40, alias: 'Boby' };
+displayPerson(person3);
+
+//Ejercicio06 Desestructuracion de objetos con el operador rest
+const person4 = {
+  name4: 'Charle',
+  age4: 34,
+  city4: 'Chicago'
+};
+
+const { name4, ...rest } = person4;
+console.log(name4);
+console.log(rest);
+
+//Ejercicio07 Desestructuracion de arrays utilizando operador rest
+const numbers3 = [1, 2, 3, 4, 5, 6, 7, 8, 9];
+const [first1, second2, ...rest1] = numbers3;
+console.log(first);
+console.log(rest1);
+
+//Ejercicio08 Intercambio de variables usando desestructuracion
+let a = 1;
+let b = 3;
+[a, b] = [b, a];
+console.log(a);
+console.log(b);
+
+//Ejercicio09  Desestructuracion de parametros de funcion con valores predeterminados
+const greet = ({ name = 'Guest', age = 18 } = {}) => {
+  console.log(`Hello ${name}. You are ${age} years old.`);
+};
+
+greet({ name: 'Dave', age: 22 });
+greet();
+
+//Ejercicio10 Desestructuracion de arrays anidadas
+const nestedArray = [1, [2, 3], 4];
+const [first10, [second10, third10], fourth] = nestedArray;
+console.log(first10);
+console.log(second10);
+console.log(third10);
+console.log(fourth);
+
+
+
+
+
