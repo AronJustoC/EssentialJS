@@ -490,7 +490,7 @@ console.log(peobleById)
 
 
 //6. destructuring
-
+/*
 //Ejerciocio01 Desestructuracion de arrays
 const numbers = [1, 2, 3, 4, 5, 6];
 const [first, second, third] = numbers;
@@ -581,8 +581,67 @@ console.log(first10);
 console.log(second10);
 console.log(third10);
 console.log(fourth);
+*/
 
 
+//Includes[]
+//Ejercicio01 verificar si un array contiene un elemento especifico
+const fruits = ['apple', 'banana', 'orange'];
+const hasBanana = fruits.includes('banana')
+console.log('The fruits array includes banana: ', hasBanana);
+
+//Ejercicio02 verificar si una cadena contiene una cadena
+const sentence = 'The quick brown fox jumps over the lazy dog';
+const hasFox = sentence.includes('fox');
+console.log('The sentence has word fox?', hasFox);
+
+//Ejercicio03 verificar si un array de numeros contiene un numero especifico
+const numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9];
+const hasThree = numbers.includes(3);
+console.log('The array numbers has the number three: ', hasThree);
+
+//Ejercicio04 verificar si un array de objetos contiene un objeto con una propiedad en especifico
+const users = [
+  { name: 'Alice', age: 25 },
+  { name: 'Bob', age: 30 },
+  { name: 'Charlie', age: 35 }
+];
+
+const hasBod = users.map(user => user.name).includes('Bob')
+console.log(' Does the array users include an objet with the property name equal to Bob ? ', hasBod);
+
+//Ejercicio05 verificar si una cadena contiene un caracter especifico
+const word = 'supercalifragilisticexpialidocious';
+const hasX = word.includes('x');
+console.log('The bools array includes x: ', hasX);
+
+//Ejercicio06 verificar si un array de booleanos contiene un valor true
+const bools = [false, false, false, false, false];
+const hasTrue = bools.includes(true);
+console.log('The bools array includes true: ', hasTrue);
+
+//Ejercicio07 verificar si un array de strings contiene una cadena especifica(case insensitive)
+const colors = ['Red', 'Green', 'Blue'];
+const hasGreen = colors.map(color => color.toLocaleLowerCase()).includes('green');
+console.log('The colors array includes Green (case insensitive)', hasGreen)
+
+//Ejercicio08 verificar si una cadena contiene una subcadena especifica en una posicion especifica
+const phrase = 'Hello, world';
+const hasWorldAtPosition7 = phrase.includes('world', 7);
+console.log('The phrase contains "world" starting at position', hasWorldAtPosition7);
+
+
+
+
+
+
+
+
+
+//11. ...rest[]
+//12. ...spred[]
+//13. async-await[]
+//14. promise.all[]
 
 
 
