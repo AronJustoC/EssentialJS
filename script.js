@@ -585,6 +585,7 @@ console.log(fourth);
 
 
 //Includes[]
+/*
 //Ejercicio01 verificar si un array contiene un elemento especifico
 const fruits = ['apple', 'banana', 'orange'];
 const hasBanana = fruits.includes('banana')
@@ -629,16 +630,75 @@ console.log('The colors array includes Green (case insensitive)', hasGreen)
 const phrase = 'Hello, world';
 const hasWorldAtPosition7 = phrase.includes('world', 7);
 console.log('The phrase contains "world" starting at position', hasWorldAtPosition7);
-
-
-
-
-
-
-
-
+*/
 
 //11. ...rest[]
+//Ejercicio01: Sumar todos los numeros
+function sum(...numbers) {
+  return numbers.reduce((accum, currentNumber) => accum + currentNumber, 0);
+}
+console.log(sum(1, 2, 4, 5, 6, 7));
+
+//Ejercicio02 Concatenar cadena
+function concatenateString(...strings) {
+  return strings.join(' ');
+}
+console.log(concatenateString('Hola', 'mundo', 'desde', 'JavaScript'));
+
+//Ejercicio03 Crear una array de objetos
+function createOjects(...names) {
+  return names.map((name, index) => ({ id: index + 1, name }));
+}
+console.log(createOjects('Aron', 'Jose', 'Luis'));
+
+//Ejercicio04 Filtrar numeros mayores que un valor dedo
+function filterGreaterThan(value, ...numbers) {
+  return numbers.filter(num => num > value);
+}
+console.log(filterGreaterThan(7, 10, 3, 5, 3, 67, 5, 34, 455, 41, 13));
+
+//Ejercicio05 Combinar arrays
+function combineArrays(...arrays) {
+  return arrays.flat();
+}
+console.log(combineArrays([1, 3], [3, 4], [5, 6]));
+
+//Ejercicio06 Obtener el resto de los elementos 
+function getRest(first, second, ...rest) {
+  return rest;
+}
+console.log(getRest(1, 2, 3, 4, 5, 6));
+
+//Ejercicio07 Crear un objeto con propiedades dinamicas
+function createObjects(name, age, ...properties) {
+  const obj = { name, age };
+  properties.forEach((property, index) => {
+    obj[`property${index + 1}`] = property;
+  });
+  return obj;
+}
+console.log(createObjects('Aron', 28, 'Developer', 'JavaScript', 'Neovim'));
+
+//Ejercicio08 Sumar numeros y concatenar cadena
+function sumAndConcatenate(...args) {
+  let sum = 0;
+  let concatenatedString = '';
+
+  args.forEach(arg => {
+    if (typeof arg == 'number') {
+      sum += arg;
+    } else if (typeof arg == 'string') {
+      concatenatedString += arg + ' ';
+    }
+  });
+  return { sum, concatenatedString: concatenatedString.trim() };
+}
+
+console.log(sumAndConcatenate(1, 'Hola', 2, 'Mundo', 4));
+
+
+
+
 //12. ...spred[]
 //13. async-await[]
 //14. promise.all[]
