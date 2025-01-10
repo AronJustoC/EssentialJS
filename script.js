@@ -633,6 +633,7 @@ console.log('The phrase contains "world" starting at position', hasWorldAtPositi
 */
 
 //11. ...rest[]
+/*
 //Ejercicio01: Sumar todos los numeros
 function sum(...numbers) {
   return numbers.reduce((accum, currentNumber) => accum + currentNumber, 0);
@@ -663,7 +664,7 @@ function combineArrays(...arrays) {
 }
 console.log(combineArrays([1, 3], [3, 4], [5, 6]));
 
-//Ejercicio06 Obtener el resto de los elementos 
+//Ejercicio06 Obtener el resto de los elementos
 function getRest(first, second, ...rest) {
   return rest;
 }
@@ -695,11 +696,70 @@ function sumAndConcatenate(...args) {
 }
 
 console.log(sumAndConcatenate(1, 'Hola', 2, 'Mundo', 4));
+*/
+
+
+//12. ...spread[]
+/*
+//Ejercicio01 Combinar arrays
+const array1 = [1, 2, 3];
+const array2 = [4, 5, 6];
+const combinedArray = [...array1, ...array2];
+console.log(combinedArray);
+
+//Ejercicio02 Clonar un array
+const originalArray = [1, 2, 3];
+const clonedArray = [...originalArray];
+console.log(clonedArray);
+
+//Ejercicio03 Combinar Objetos
+const obj1 = { a: 1, b: 2 };
+const obj2 = { c: 3, d: 4 };
+const combinedObj = { ...obj1, ...obj2 };
+console.log(combinedObj);
+
+//Ejercicio04 Clonar un Objeto
+const originalObject = { a: 1, b: 2 };
+const clonedObject = { ...originalObject };
+console.log(clonedObject);
+
+//Ejercicio05 Pasar argumentos a una funcion
+const numbers = [1, 2, 3];
+const sum = (a, b, c) => a + b + c;
+console.log(sum(...numbers));
+
+//Ejercicio06 Crear una copia de un array y agregar nuevos elementos
+const arrayX = [4, 5, 6, 7];
+const newArray = [1, 2, 3, ...arrayX, 8];
+console.log(newArray);
+
+//Ejercicio07 Remover duplicados de un array
+const arrayWithDuplicates = [1, 2, 2, 2, 3, 3, 3, 4, 4, 4, 5, 6]; array1
+const uniqueArray = [...new Set(arrayWithDuplicates)];
+console.log(uniqueArray);
+*/
 
 
 
 
-//12. ...spred[]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 //13. async-await[]
 //14. promise.all[]
 
