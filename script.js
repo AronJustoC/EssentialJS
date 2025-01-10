@@ -740,27 +740,97 @@ console.log(uniqueArray);
 */
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 //13. async-await[]
+//Ejercicio01 Funcion asincrona basica
+/*
+function delay(ms) {
+  return new Promise(resolve => setTimeout(resolve, ms));
+}
+
+async function asyncFunction() {
+  console.log('Inicio');
+  await delay(100); //Esperar 2 segundos
+  console.log('Fin');
+}
+
+asyncFunction();
+
+//Ejercicio02 Llamar una API
+async function fetchData() {
+  try {
+    const response = await fetch('http://jsonplaceholder.typicode.com/posts/1');
+    const data = await response.json();
+    console.log(data);
+  } catch (error) {
+    console.error('Error', error);
+  }
+}
+
+fetchData();
+
+//Ejercicio03 Manejo de errores
+async function fetchDataWithErrorHandling() {
+  try {
+    const response = await fetch('https://jsonplaceholder.typicode.com/invalid-url');
+    if (!response.ok) {
+      throw new Error('Network response was not ok');
+    }
+    const data = await response.json();
+    console.log(data);
+  } catch (error) {
+    console.error('Error', error);
+  }
+}
+
+fetchDataWithErrorHandling();
+
+//Ejercicio04 Ejecutar funciones asincronas en paralelo
+async function fetchPost(id) {
+  const response = await fetch(`https://jsonplaceholder.typicode.com/posts/${id}`);
+  return response.json();
+}
+
+async function fetchMultilePosts() {
+  const postsIds = [1, 2, 3];
+  const promises = postsIds.map(id => fetchPost(id));
+  const posts = await Promise.all(promises);
+  console.log(posts);
+}
+
+fetchMultilePosts();
+
+//Ejercicio05 Cadena de promesas
+async function fetchUserData(userId) {
+  const userResponse = await fetch(`https://jsonplaceholder.typicode.com/users/${userId}`);
+  const user = await userResponse.json();
+
+  const postsResponse = await fetch(`https://jsonplaceholder.typicode.com/posts?userId=${userId}`);
+  const posts = await postsResponse.json();
+
+  return { user, posts };
+}
+
+async function displayUserData() {
+  const userData = await fetchUserData(1);
+  console.log(userData);
+}
+
+displayUserData();
+
+//Ejercicio06 Retraso en una funcion asincrona
+function delay(ms) {
+  return new Promise(resolve => setTimeout(resolve, ms));
+}
+
+async function delayedMessage() {
+  console.log('Mensaje inicial');
+  await delay(3000);
+  console.log('Mensaje de despedida despues de 3 segundos');
+}
+
+delayedMessage();
+*/
+
 //14. promise.all[]
 
 
