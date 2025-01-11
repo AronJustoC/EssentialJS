@@ -832,6 +832,69 @@ delayedMessage();
 */
 
 //14. promise.all[]
+//Ejercicio01 Ejecutar multiples promesas en paralelo
+function delay(ms) {
+  return new Promise(resolve => setTimeout(resolve, ms));
+}
 
+const promise1 = delay(1000).then(() => 'Promesa 1 resuelta');
+const promise2 = delay(2000).then(() => 'Promesa 2 resuelta');
+const promise3 = delay(3000).then(() => 'Promesa 3 resuelta');
 
+Promise.all([promise1, promise2, promise3]).then(results => {
+  console.log(results);
+}).catch(error => {
+  console.error('Error', error);
+});
 
+//Ejercicio02 Obtener datos de multiples APIs
+
+const fetchPost = id => fetch(`https://jsonplaceholder.typicode.com/posts/${id}`).then(response => response.json());
+
+Promise.all([fetchPost(1), fetchPost(2), fetchPost(3)]).then(posts => {
+  console.log(posts);
+}).catch(error => {
+  console.error('Error', error);
+});
+
+//Ejercicio03 Obtener datps de multiples URLs
+const urls = [
+  'https://jsonplaceholder.typicode.com/posts/1',
+  'https://jsonplaceholder.typicode.com/posts/2',
+  'https://jsonplaceholder.typicode.com/posts/3'
+];
+
+Promise.all(urls.map(url => fetch(url).then(response => response.json())))
+  .then(results => {
+    console.log(results);
+  }).catch(error => {
+    console.error('Error', error);
+  });
+
+//Ejercicio04 Obtener datos de multiples APIs y Combinar
+const fetchUser = id => fetch(`https://jsonplaceholder.typicode.com/users/${id}`).
+  then(response => response.json());
+const fetchPosts1 = userId => fetch(`https://jsonplaceholder.typicode.com/posts?userId=${userId}`).
+  then(response => response.json());
+
+Promise.all([fetchUser(1), fetchPosts1(1)]).then(([user, posts]) => {
+  console.log('User:', user);
+  console.log('Posts:', posts);
+}).catch(error => {
+  console.error('Error', error);
+})
+
+//Ejercicio05 Ejecutar multiples promesas y manejar errores individualmente
+const promiseUno = Promise.resolve('promesa 1 resuelta');
+const promiseDos = Promise.resolve('promesa 2 resuelta');
+const promiseTres = Promise.resolve('promesa 3 resuelta');
+
+Promise.allSettled([promiseUno, promiseDos, promiseTres]).then(results => {
+  results.forEach((result, index) => {
+    if (result.status === 'fulfilled') {
+      console.log(`Promesa ${index + 1} resuelta:`, result.value);
+    } else {
+      console.error(`Promesa ${index + 1} rechazada:`, result.reason);
+    }
+  });
+});
