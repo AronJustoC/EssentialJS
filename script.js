@@ -633,6 +633,7 @@ console.log('The phrase contains "world" starting at position', hasWorldAtPositi
 */
 
 //11. ...rest[]
+/*
 //Ejercicio01: Sumar todos los numeros
 function sum(...numbers) {
   return numbers.reduce((accum, currentNumber) => accum + currentNumber, 0);
@@ -663,7 +664,7 @@ function combineArrays(...arrays) {
 }
 console.log(combineArrays([1, 3], [3, 4], [5, 6]));
 
-//Ejercicio06 Obtener el resto de los elementos 
+//Ejercicio06 Obtener el resto de los elementos
 function getRest(first, second, ...rest) {
   return rest;
 }
@@ -695,13 +696,205 @@ function sumAndConcatenate(...args) {
 }
 
 console.log(sumAndConcatenate(1, 'Hola', 2, 'Mundo', 4));
+*/
 
 
+//12. ...spread[]
+/*
+//Ejercicio01 Combinar arrays
+const array1 = [1, 2, 3];
+const array2 = [4, 5, 6];
+const combinedArray = [...array1, ...array2];
+console.log(combinedArray);
+
+//Ejercicio02 Clonar un array
+const originalArray = [1, 2, 3];
+const clonedArray = [...originalArray];
+console.log(clonedArray);
+
+//Ejercicio03 Combinar Objetos
+const obj1 = { a: 1, b: 2 };
+const obj2 = { c: 3, d: 4 };
+const combinedObj = { ...obj1, ...obj2 };
+console.log(combinedObj);
+
+//Ejercicio04 Clonar un Objeto
+const originalObject = { a: 1, b: 2 };
+const clonedObject = { ...originalObject };
+console.log(clonedObject);
+
+//Ejercicio05 Pasar argumentos a una funcion
+const numbers = [1, 2, 3];
+const sum = (a, b, c) => a + b + c;
+console.log(sum(...numbers));
+
+//Ejercicio06 Crear una copia de un array y agregar nuevos elementos
+const arrayX = [4, 5, 6, 7];
+const newArray = [1, 2, 3, ...arrayX, 8];
+console.log(newArray);
+
+//Ejercicio07 Remover duplicados de un array
+const arrayWithDuplicates = [1, 2, 2, 2, 3, 3, 3, 4, 4, 4, 5, 6]; array1
+const uniqueArray = [...new Set(arrayWithDuplicates)];
+console.log(uniqueArray);
+*/
 
 
-//12. ...spred[]
 //13. async-await[]
+//Ejercicio01 Funcion asincrona basica
+/*
+function delay(ms) {
+  return new Promise(resolve => setTimeout(resolve, ms));
+}
+
+async function asyncFunction() {
+  console.log('Inicio');
+  await delay(100); //Esperar 2 segundos
+  console.log('Fin');
+}
+
+asyncFunction();
+
+//Ejercicio02 Llamar una API
+async function fetchData() {
+  try {
+    const response = await fetch('http://jsonplaceholder.typicode.com/posts/1');
+    const data = await response.json();
+    console.log(data);
+  } catch (error) {
+    console.error('Error', error);
+  }
+}
+
+fetchData();
+
+//Ejercicio03 Manejo de errores
+async function fetchDataWithErrorHandling() {
+  try {
+    const response = await fetch('https://jsonplaceholder.typicode.com/invalid-url');
+    if (!response.ok) {
+      throw new Error('Network response was not ok');
+    }
+    const data = await response.json();
+    console.log(data);
+  } catch (error) {
+    console.error('Error', error);
+  }
+}
+
+fetchDataWithErrorHandling();
+
+//Ejercicio04 Ejecutar funciones asincronas en paralelo
+async function fetchPost(id) {
+  const response = await fetch(`https://jsonplaceholder.typicode.com/posts/${id}`);
+  return response.json();
+}
+
+async function fetchMultilePosts() {
+  const postsIds = [1, 2, 3];
+  const promises = postsIds.map(id => fetchPost(id));
+  const posts = await Promise.all(promises);
+  console.log(posts);
+}
+
+fetchMultilePosts();
+
+//Ejercicio05 Cadena de promesas
+async function fetchUserData(userId) {
+  const userResponse = await fetch(`https://jsonplaceholder.typicode.com/users/${userId}`);
+  const user = await userResponse.json();
+
+  const postsResponse = await fetch(`https://jsonplaceholder.typicode.com/posts?userId=${userId}`);
+  const posts = await postsResponse.json();
+
+  return { user, posts };
+}
+
+async function displayUserData() {
+  const userData = await fetchUserData(1);
+  console.log(userData);
+}
+
+displayUserData();
+
+//Ejercicio06 Retraso en una funcion asincrona
+function delay(ms) {
+  return new Promise(resolve => setTimeout(resolve, ms));
+}
+
+async function delayedMessage() {
+  console.log('Mensaje inicial');
+  await delay(3000);
+  console.log('Mensaje de despedida despues de 3 segundos');
+}
+
+delayedMessage();
+*/
+
 //14. promise.all[]
+//Ejercicio01 Ejecutar multiples promesas en paralelo
+function delay(ms) {
+  return new Promise(resolve => setTimeout(resolve, ms));
+}
 
+const promise1 = delay(1000).then(() => 'Promesa 1 resuelta');
+const promise2 = delay(2000).then(() => 'Promesa 2 resuelta');
+const promise3 = delay(3000).then(() => 'Promesa 3 resuelta');
 
+Promise.all([promise1, promise2, promise3]).then(results => {
+  console.log(results);
+}).catch(error => {
+  console.error('Error', error);
+});
 
+//Ejercicio02 Obtener datos de multiples APIs
+
+const fetchPost = id => fetch(`https://jsonplaceholder.typicode.com/posts/${id}`).then(response => response.json());
+
+Promise.all([fetchPost(1), fetchPost(2), fetchPost(3)]).then(posts => {
+  console.log(posts);
+}).catch(error => {
+  console.error('Error', error);
+});
+
+//Ejercicio03 Obtener datps de multiples URLs
+const urls = [
+  'https://jsonplaceholder.typicode.com/posts/1',
+  'https://jsonplaceholder.typicode.com/posts/2',
+  'https://jsonplaceholder.typicode.com/posts/3'
+];
+
+Promise.all(urls.map(url => fetch(url).then(response => response.json())))
+  .then(results => {
+    console.log(results);
+  }).catch(error => {
+    console.error('Error', error);
+  });
+
+//Ejercicio04 Obtener datos de multiples APIs y Combinar
+const fetchUser = id => fetch(`https://jsonplaceholder.typicode.com/users/${id}`).
+  then(response => response.json());
+const fetchPosts1 = userId => fetch(`https://jsonplaceholder.typicode.com/posts?userId=${userId}`).
+  then(response => response.json());
+
+Promise.all([fetchUser(1), fetchPosts1(1)]).then(([user, posts]) => {
+  console.log('User:', user);
+  console.log('Posts:', posts);
+}).catch(error => {
+  console.error('Error', error);
+})
+
+//Ejercicio05 Ejecutar multiples promesas y manejar errores individualmente
+const promiseUno = Promise.resolve('promesa 1 resuelta');
+const promiseDos = Promise.resolve('promesa 2 resuelta');
+const promiseTres = Promise.resolve('promesa 3 resuelta');
+
+Promise.allSettled([promiseUno, promiseDos, promiseTres]).then(results => {
+  results.forEach((result, index) => {
+    if (result.status === 'fulfilled') {
+      console.log(`Promesa ${index + 1} resuelta:`, result.value);
+    } else {
+      console.error(`Promesa ${index + 1} rechazada:`, result.reason);
+    }
+  });
+});
