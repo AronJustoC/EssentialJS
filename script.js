@@ -832,6 +832,7 @@ delayedMessage();
 */
 
 //14. promise.all[]
+/*
 //Ejercicio01 Ejecutar multiples promesas en paralelo
 function delay(ms) {
   return new Promise(resolve => setTimeout(resolve, ms));
@@ -898,3 +899,56 @@ Promise.allSettled([promiseUno, promiseDos, promiseTres]).then(results => {
     }
   });
 });
+*/
+
+//14. Manejo de archivos JSON
+
+//01 crear un objeto
+const obj = [
+  { id: 1, name: "Alice", age: 25 },
+  { id: 2, name: "Bob", age: 30 },
+  { id: 3, name: "Charlie", age: 35 }
+];
+
+//Convertir esa cadena de objetos en una cadena JSON
+const jsonString = JSON.stringify(obj);
+console.log(jsonString);
+
+//Convertir un a cadena Json a un objeto
+const objet = JSON.parse(jsonString);
+console.log(objet);
+
+//################# SOLO EN EL TERMINAL ##############################
+//Leer un archivo json 
+/*
+const fs = require('fs');
+fs.readFile('data.json', 'utf-8', (err, data) => {
+  if (err) {
+    console.log(err);
+    return;
+  }
+  const obj = JSON.parse(data);
+  console.log(obj);
+})
+*/
+//Escribir un array de objetos
+/*
+const fs = require('fs');
+const obj01 = [
+  { id: 1, name: "Arito", age: 25 },
+  { id: 2, name: "Boby", age: 30 },
+  { id: 3, name: "Carlitos", age: 35 }
+];
+
+const jsonString01 = JSON.stringify(obj01, null, 2);
+
+fs.writeFile('data.json', jsonString01, (err) => {
+  if (err) {
+    console.error(err);
+    return;
+  }
+  console.log('Archivo JSON guardado')
+})
+*/
+
+//
