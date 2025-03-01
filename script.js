@@ -951,4 +951,21 @@ fs.writeFile('data.json', jsonString01, (err) => {
 })
 */
 
-//
+//leer y procesar archivo de texto 
+const fs = require('fs').promises;
+
+async function countWords(inputFile, outputFile) {
+  try {
+    const content = await fs.readFile(inputFile, 'utf-8');
+    const words = content.split(/\s+/).filter(Boolean);
+    const totalWods = words.length;
+
+    const result = `El archivo contiene ${totalWods} palabras.`;
+    await fs.writeFile(outputFile, result);
+    console.log('Resultado guardado en: ', outputFile);
+  } catch (err) {
+    console.error(err.message);
+  }
+}
+
+countWords('text.txt', 'result.txt');
